@@ -1,7 +1,7 @@
 .form {
   height: 360px;
   width: 100%;
-  background-image: url('https://cdn.pixabay.com/photo/2018/08/10/15/45/woman-3597101_1280.jpg');
+  background-image: url('<img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=USUARIO&layout=compact&langs_count=7&theme=dracula"/>');
   background-size: cover;
   position: relative;
   display: flex;

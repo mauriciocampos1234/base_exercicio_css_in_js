@@ -1,31 +1,43 @@
-import { FormEvent, useState } from 'react'
+// Importar styled-components
+import styled from 'styled-components'
 
-import styles from './FormVagas.module.css'
+// Criar componentes estilizados
+const FormWrapper = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+`
 
-type Props = {
-  aoPesquisar: (termo: string) => void
-}
+const Input = styled.input`
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+`
 
-const FormVagas = ({ aoPesquisar }: Props) => {
-  const [termo, setTermo] = useState<string>('')
+const Button = styled.button`
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 
-  const aoEnviarForm = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    aoPesquisar(termo.toLocaleLowerCase())
+  &:hover {
+    background-color: #0056b3;
   }
+`
 
-  return (
-    <form className={styles.form} onSubmit={aoEnviarForm}>
-      <input
-        className={styles.campo}
-        placeholder="Front-end, fullstack, node, design"
-        onChange={(e) => setTermo(e.target.value)}
-        type="search"
-      />
-      <button className={styles.btnPesquisar} type="submit">
-        Pesquisar
-      </button>
-    </form>
-  )
-}
-export default FormVagas
+const Form = () => (
+  <FormWrapper>
+    <Input type="text" placeholder="Nome" />
+    <Input type="email" placeholder="Email" />
+    <Button type="submit">Enviar</Button>
+  </FormWrapper>
+)
+
+export default Form

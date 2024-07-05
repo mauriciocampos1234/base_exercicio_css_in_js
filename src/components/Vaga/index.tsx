@@ -1,31 +1,30 @@
-import styles from './Vaga.module.css'
+import styled from 'styled-components'
 
-type Props = {
-  titulo: string
-  localizacao: string
-  nivel: string
-  modalidade: string
-  salarioMin: number
-  salarioMax: number
-  requisitos: string[]
-}
+const VagaWrapper = styled.div`
+  padding: 20px;
+  margin: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+`
 
-const Vaga = (props: Props) => (
-  <li className={styles.vaga}>
-    <h3 className={styles.vagaTitulo}>{props.titulo}</h3>
-    <ul>
-      <li>Localizacao: {props.localizacao}</li>
-      <li>Senioridade: {props.nivel}</li>
-      <li>Tipo de contratacao: {props.modalidade}</li>
-      <li>
-        Salário: {props.salarioMin} - {props.salarioMax}
-      </li>
-      <li>Requisitos: {props.requisitos.join(', ')}</li>
-    </ul>
-    <a className={styles.vagaLink} href="#">
-      Ver detalhes e candidatar-se
-    </a>
-  </li>
+const VagaTitle = styled.h3`
+  margin: 0;
+  font-size: 1.5em;
+  color: #333;
+`
+
+const VagaDescription = styled.p`
+  margin: 10px 0;
+  color: #666;
+`
+
+const Vaga = ({ title, description }) => (
+  <VagaWrapper>
+    <VagaTitle>{title}</VagaTitle>
+    <VagaDescription>{description}</VagaDescription>
+  </VagaWrapper>
 )
 
 export default Vaga
